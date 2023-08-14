@@ -63,6 +63,8 @@ class Texts with ChangeNotifier {
     ' (విజ్ఞాన ప్రయోగం)'
   ];
 
+  final List<String> _bharati_script_hindi = [];
+
   List<String> get texts {
     if (_chosenLanguage == 0) {
       return _hindi;
