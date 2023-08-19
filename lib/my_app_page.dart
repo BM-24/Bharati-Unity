@@ -48,7 +48,7 @@ class _MyAppPageState extends State<MyAppPage> {
         },
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Bharati Unity'),
+            title: const Text('Hindi-Telugu-Bengali Unity'),
             backgroundColor: Colors.orange,
             automaticallyImplyLeading: false,
             centerTitle: true,
@@ -112,6 +112,7 @@ class _MyAppPageState extends State<MyAppPage> {
                           : _counter == 1
                               ? const Result()
                               : const LastPage(),
+                      const Spacer(),
                       _counter != 2
                           ? Container(
                               margin: const EdgeInsets.all(16),
@@ -130,16 +131,34 @@ class _MyAppPageState extends State<MyAppPage> {
                                   onPressed: () {
                                     increaseCounter();
                                   },
-                                  child: Text(
-                                    context.watch<Texts>().texts[6],
-                                    style: const TextStyle(
-                                      fontSize: 24,
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        context.watch<Texts>().texts[6],
+                                        style: const TextStyle(
+                                          fontSize: 24,
+                                        ),
+                                      ),
+                                      // Icon(Icons.candlestick_chart)
+                                      // using click_icon.png
+                                      Image.asset(
+                                        'images/hand_click_icon.png',
+                                        height: 30,
+                                        width: 30,
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
                             )
-                          : Container(),
+                          : Container(
+                              margin: const EdgeInsets.all(16.0),
+                              child: const Text(
+                                'This app has been built as a part of NSS work of IITM, and is kept for free public usage.',
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
                     ],
                   ),
                 ),

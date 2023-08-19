@@ -16,6 +16,7 @@ class LastPage extends StatelessWidget {
       margin: const EdgeInsets.only(top: 64, left: 16, right: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Text(
             context.watch<Texts>().texts[10],
