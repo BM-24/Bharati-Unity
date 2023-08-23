@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 
 class Texts with ChangeNotifier {
   int _chosenLanguage = 0;
-  List<String> languages = ['हिंदी', 'বাংলা', 'తెలుగు'];
+  bool _isBharati = false;
+  List<String> languages = [
+    'हिंदी',
+    'বাংলা',
+    'తెలుగు',
+    'भारति - हिंदी',
+    'भारति - తెలుగు'
+  ];
   // 0: Hindi
   // 1: Bengali
   // 2: Telugu
+  // 3: Bharati-Hindi
+  // 4: Bharati-Telugu
 
   int get chosenLanguage => _chosenLanguage;
+  bool get isBharati => _chosenLanguage > 2;
 
   final List<String> _hindi = [
     'नमस्ते',
@@ -63,15 +73,14 @@ class Texts with ChangeNotifier {
     ' (విజ్ఞాన ప్రయోగం)'
   ];
 
-  final List<String> _bharati_script_hindi = [];
-
   List<String> get texts {
-    if (_chosenLanguage == 0) {
+    if (_chosenLanguage == 0 || _chosenLanguage == 3) {
       return _hindi;
     } else if (_chosenLanguage == 1) {
       return _bengali;
+    } else {
+      return _telugu;
     }
-    return _telugu;
   }
 
   void setLanguage(int language) {

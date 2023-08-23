@@ -16,10 +16,18 @@ class LastPage extends StatelessWidget {
       margin: const EdgeInsets.only(top: 64, left: 16, right: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Text(
             context.watch<Texts>().texts[10],
-            style: const TextStyle(fontSize: 36),
+            style: context.read<Texts>().isBharati
+                ? const TextStyle(
+                    fontSize: 36,
+                    fontFamily: 'NavBharati',
+                  )
+                : const TextStyle(
+                    fontSize: 36,
+                  ),
           ),
           const SizedBox(
             height: 32,
@@ -41,10 +49,16 @@ class LastPage extends StatelessWidget {
                 ),
                 TextSpan(
                   text: context.watch<Texts>().texts[11],
-                  style: const TextStyle(
-                    fontSize: 24,
-                    color: Colors.grey,
-                  ),
+                  style: context.read<Texts>().isBharati
+                      ? const TextStyle(
+                          fontSize: 24,
+                          color: Colors.grey,
+                          fontFamily: 'NavBharati',
+                        )
+                      : const TextStyle(
+                          fontSize: 24,
+                          color: Colors.grey,
+                        ),
                 ),
               ],
             ),
@@ -54,26 +68,34 @@ class LastPage extends StatelessWidget {
           ),
           RichText(
             textAlign: TextAlign.center,
-            text: TextSpan(children: [
-              TextSpan(
-                text: 'vigyanprasar.gov.in',
-                style: const TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline,
-                    fontSize: 24),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    launchUrl(Uri.parse('https://vigyanprasar.gov.in'));
-                  },
-              ),
-              TextSpan(
-                text: context.watch<Texts>().texts[12],
-                style: const TextStyle(
-                  fontSize: 24,
-                  color: Colors.grey,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: 'vigyanprasar.gov.in',
+                  style: const TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                      fontSize: 24),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      launchUrl(Uri.parse('https://vigyanprasar.gov.in'));
+                    },
                 ),
-              ),
-            ]),
+                TextSpan(
+                  text: context.watch<Texts>().texts[12],
+                  style: context.read<Texts>().isBharati
+                      ? const TextStyle(
+                          fontSize: 24,
+                          color: Colors.grey,
+                          fontFamily: 'NavBharati',
+                        )
+                      : const TextStyle(
+                          fontSize: 24,
+                          color: Colors.grey,
+                        ),
+                ),
+              ],
+            ),
           ),
           const SizedBox(
             height: 8,
@@ -95,10 +117,16 @@ class LastPage extends StatelessWidget {
                 ),
                 TextSpan(
                   text: context.watch<Texts>().texts[13],
-                  style: const TextStyle(
-                    fontSize: 24,
-                    color: Colors.grey,
-                  ),
+                  style: context.read<Texts>().isBharati
+                      ? const TextStyle(
+                          fontSize: 24,
+                          color: Colors.grey,
+                          fontFamily: 'NavBharati',
+                        )
+                      : const TextStyle(
+                          fontSize: 24,
+                          color: Colors.grey,
+                        ),
                 ),
               ],
             ),
@@ -123,10 +151,16 @@ class LastPage extends StatelessWidget {
                   ),
                   TextSpan(
                     text: context.watch<Texts>().texts[14],
-                    style: const TextStyle(
-                      fontSize: 24,
-                      color: Colors.grey,
-                    ),
+                    style: context.read<Texts>().isBharati
+                        ? const TextStyle(
+                            fontSize: 24,
+                            color: Colors.grey,
+                            fontFamily: 'NavBharati',
+                          )
+                        : const TextStyle(
+                            fontSize: 24,
+                            color: Colors.grey,
+                          ),
                   ),
                 ],
               )),

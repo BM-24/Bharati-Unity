@@ -15,33 +15,58 @@ class HomePage extends StatelessWidget {
         children: [
           Text(
             context.watch<Texts>().texts[1],
-            style: const TextStyle(
-              fontSize: 20,
-            ),
+            style: context.read<Texts>().isBharati
+                ? const TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'NavBharati',
+                  )
+                : const TextStyle(
+                    fontSize: 20,
+                  ),
           ),
           Text(
             context.watch<Texts>().texts[2],
-            style: const TextStyle(
-              fontSize: 20,
-            ),
+            style: context.read<Texts>().isBharati
+                ? const TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'NavBharati',
+                  )
+                : const TextStyle(
+                    fontSize: 20,
+                  ),
           ),
           Text(
             context.watch<Texts>().texts[3],
-            style: const TextStyle(
-              fontSize: 20,
-            ),
+            style: context.read<Texts>().isBharati
+                ? const TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'NavBharati',
+                  )
+                : const TextStyle(
+                    fontSize: 20,
+                  ),
           ),
           Text(
             context.watch<Texts>().texts[4],
-            style: const TextStyle(
-              fontSize: 20,
-            ),
+            style: context.read<Texts>().isBharati
+                ? const TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'NavBharati',
+                  )
+                : const TextStyle(
+                    fontSize: 20,
+                  ),
           ),
           Text(
             context.watch<Texts>().texts[5],
-            style: const TextStyle(
-              fontSize: 20,
-            ),
+            style: context.read<Texts>().isBharati
+                ? const TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'NavBharati',
+                  )
+                : const TextStyle(
+                    fontSize: 20,
+                  ),
           ),
           const SizedBox(
             height: 20,

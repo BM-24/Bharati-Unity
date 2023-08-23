@@ -24,10 +24,16 @@ class SplashScreen extends StatelessWidget {
             ),
             Text(
               context.watch<Texts>().texts[0],
-              style: const TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-              ),
+              style: context.read<Texts>().isBharati
+                  ? const TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'NavBharati',
+                    )
+                  : const TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                    ),
             ),
           ],
         ),

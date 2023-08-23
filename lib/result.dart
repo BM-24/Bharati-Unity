@@ -14,9 +14,14 @@ class Result extends StatelessWidget {
         children: [
           Text(
             context.watch<Texts>().texts[7],
-            style: const TextStyle(
-              fontSize: 36,
-            ),
+            style: context.read<Texts>().isBharati
+                ? const TextStyle(
+                    fontSize: 36,
+                    fontFamily: 'NavBharati',
+                  )
+                : const TextStyle(
+                    fontSize: 36,
+                  ),
           ),
           const SizedBox(
             height: 32,
@@ -31,11 +36,18 @@ class Result extends StatelessWidget {
           ),
           Text(
             context.watch<Texts>().texts[8],
-            style: const TextStyle(
-              fontSize: 30,
-              fontStyle: FontStyle.italic,
-              color: Colors.black54,
-            ),
+            style: context.read<Texts>().isBharati
+                ? const TextStyle(
+                    fontSize: 30,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black54,
+                    fontFamily: 'NavBharati',
+                  )
+                : const TextStyle(
+                    fontSize: 30,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black54,
+                  ),
           ),
           const SizedBox(
             height: 8,
@@ -46,10 +58,16 @@ class Result extends StatelessWidget {
               margin: const EdgeInsets.only(right: 16.0),
               child: Text(
                 context.watch<Texts>().texts[9],
-                style: const TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: context.read<Texts>().isBharati
+                    ? const TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'NavBharati',
+                      )
+                    : const TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                      ),
               ),
             ),
           ),

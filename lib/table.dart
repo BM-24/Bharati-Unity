@@ -3,6 +3,7 @@ import 'table_chars.dart';
 
 class MyTable extends StatelessWidget {
   MyTable({super.key});
+  ScrollController _scrollController = ScrollController();
 
   Widget buildCell(int num) {
     return Container(
@@ -50,13 +51,22 @@ class MyTable extends StatelessWidget {
   }
 
   Widget biuldTable(int row) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      physics: const BouncingScrollPhysics(),
-      child: Row(
-        children: List.generate(
-          10,
-          (int index) => buildColumn(index),
+    return Scrollbar(
+      controller: _scrollController,
+      thickness: 5,
+      thumbVisibility: true,
+      trackVisibility: true,
+      interactive: false,
+      radius: const Radius.circular(5),
+      scrollbarOrientation: ScrollbarOrientation.top,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        // physics: const BouncingScrollPhysics(),
+        child: Row(
+          children: List.generate(
+            10,
+            (int index) => buildColumn(index),
+          ),
         ),
       ),
     );

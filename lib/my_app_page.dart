@@ -89,12 +89,21 @@ class _MyAppPageState extends State<MyAppPage> {
                 itemBuilder: ((context) => context
                     .read<Texts>()
                     .languages
-                    .map((e) => PopupMenuItem(
-                          value: context.read<Texts>().languages.indexOf(e),
-                          child: Text(
-                            e,
-                          ),
-                        ))
+                    .map(
+                      (e) => PopupMenuItem(
+                        value: context.read<Texts>().languages.indexOf(e),
+                        child: context.read<Texts>().languages.indexOf(e) <= 2
+                            ? Text(
+                                e,
+                              )
+                            : Text(
+                                e,
+                                style: const TextStyle(
+                                  fontFamily: 'NavBharati',
+                                ),
+                              ),
+                      ),
+                    )
                     .toList()),
               )
             ],
@@ -112,6 +121,7 @@ class _MyAppPageState extends State<MyAppPage> {
                           : _counter == 1
                               ? const Result()
                               : const LastPage(),
+                      const Spacer(),
                       _counter != 2
                           ? Container(
                               margin: const EdgeInsets.all(16),
@@ -130,12 +140,38 @@ class _MyAppPageState extends State<MyAppPage> {
                                   onPressed: () {
                                     increaseCounter();
                                   },
-                                  child: Text(
-                                    context.watch<Texts>().texts[6],
-                                    style: const TextStyle(
-                                      fontSize: 24,
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        context.watch<Texts>().texts[6],
+                                        style: context.read<Texts>().isBharati
+                                            ? const TextStyle(
+                                                fontSize: 24,
+                                                fontFamily: 'NavBharati',
+                                              )
+                                            : const TextStyle(
+                                                fontSize: 24,
+                                              ),
+                                      ),
+                                      Image.asset(
+                                        'images/hand_click_icon.png',
+                                        height: 30,
+                                        width: 30,
+                                      ),
+                                    ],
                                   ),
+                                  // child: Text(
+                                  //   context.watch<Texts>().texts[6],
+                                  //   style: context.read<Texts>().isBharati
+                                  //       ? const TextStyle(
+                                  //           fontSize: 24,
+                                  //           fontFamily: 'NavBharati',
+                                  //         )
+                                  //       : const TextStyle(
+                                  //           fontSize: 24,
+                                  //         ),
+                                  // ),
                                 ),
                               ),
                             )
